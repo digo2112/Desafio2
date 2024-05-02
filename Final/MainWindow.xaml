@@ -1,0 +1,21 @@
+﻿<Window x:Class="Final.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Título -->
+        <TextBlock Text="Gerenciamento de Eventos" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Grid.Row="0"/>
+
+        <!-- Botões -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+            <Button x:Name="btnCadastroEventos" Content="Cadastro de Eventos" Margin="10" Width="150" Height="50" Click="btnCadastroEventos_Click"/>
+            <Button x:Name="btnCadastroParticipantes" Content="Cadastro de Participantes" Margin="10" Width="150" Height="50" Click="btnCadastroParticipantes_Click"/>
+            <Button x:Name="btnEventos" Content="Eventos" Margin="10" Width="150" Height="50" Click="btnEventos_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

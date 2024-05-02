@@ -1,0 +1,241 @@
+﻿<Window x:Class="Final.Views.ParticipanteView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:System.Windows.Controls;assembly=PresentationFramework"
+        Title="Adicionar Participante" Height="350" Width="525">
+
+    <Window.Resources>
+        <controls:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Nome" Grid.Column="0" Grid.Row="0"/>
+            <TextBox x:Name="NomeTextBox" Grid.Column="0" Grid.Row="1" Background="Transparent" Text="{Binding Participante.Nome, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="Nome" 
+                       Foreground="Gray" 
+                       Visibility="{Binding ElementName=NomeTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+
+            <Label Content="CPF" Grid.Column="1" Grid.Row="0"/>
+            <TextBox x:Name="CpfTextBox" Grid.Column="1" Grid.Row="1" Background="Transparent" Text="{Binding Participante.Cpf, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="CPF" 
+                       Foreground="Gray" 
+                       Visibility="{Binding ElementName=CpfTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <CheckBox x:Name="IsConfirmadoCheckBox" Grid.Column="2" Grid.Row="1" Content="Confirmado" IsChecked="{Binding Participante.IsConfirmado, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Email" Grid.Column="0" Grid.Row="0"/>
+            <TextBox x:Name="EmailTextBox" Grid.Column="0" Grid.Row="1" Background="Transparent" Text="{Binding Participante.Email, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="Email" 
+                       Foreground="Gray" 
+                       Visibility="{Binding ElementName=EmailTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Label Content="Telefone" Grid.Column="1" Grid.Row="0"/>
+            <TextBox x:Name="TelefoneTextBox" Grid.Column="1" Grid.Row="1" Background="Transparent" Text="{Binding Participante.Telefone, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="Telefone" 
+                       Foreground="Gray" 
+                       Visibility="{Binding ElementName=TelefoneTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Endereço" Grid.Column="0"  Grid.Row="0"/>
+            <TextBox x:Name="EnderecoTextBox" Grid.Column="0"  Grid.Row="1" Background="Transparent" Text="{Binding Participante.Endereco, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="Endereço" 
+                       Foreground="Gray" 
+                       Visibility="{Binding ElementName=EnderecoTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Label Content="Cidade" Grid.Column="1"  Grid.Row="0"/>
+            <TextBox x:Name="CidadeTextBox" Grid.Column="1"  Grid.Row="1" Background="Transparent" Text="{Binding Participante.Cidade, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="Cidade" 
+                       Foreground="Gray" 
+                       Visibility="{Binding ElementName=CidadeTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+
+            <Label Content="Estado" Grid.Column="2"  Grid.Row="0"/>
+            <TextBox x:Name="EstadoTextBox" Grid.Column="2"  Grid.Row="1" Background="Transparent" Text="{Binding Participante.Estado, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="Estado" 
+                       Foreground="Gray" 
+                       Visibility="{Binding ElementName=EstadoTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Descrição" Grid.Row="0"/>
+            <TextBox x:Name="DescricaoTextBox" Grid.Row="1" Background="Transparent" Text="{Binding Participante.Descricao, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock IsHitTestVisible="False" Text="Descrição" 
+                   Foreground="Gray" 
+                   Visibility="{Binding ElementName=DescricaoTextBox, Path=Text.Length, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}">
+                        <Setter Property="Margin" Value="5,3,0,0"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Text" Value=""/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label Content="Evento" Grid.Row="0"/>
+            <ComboBox x:Name="EventoComboBox" Grid.Row="1" ItemsSource="{Binding Eventos}" DisplayMemberPath="Nome" SelectedItem="{Binding Participante.EventoSelecionado, UpdateSourceTrigger=PropertyChanged}"/>
+
+        </Grid>
+
+        <Grid Grid.Row="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Botões -->
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Voltar" Click="Voltar_Click" Margin="0,0,10,0"/>
+                <Button Content="Resetar" Click="Resetar_Click" Margin="0,0,10,0"/>
+                <!-- <Button x:Name="ConfirmarButton" Content="Confirmar" Command="{Binding ConfirmarCommand}"/> -->
+                <Button Content="Confirmar" Command="{Binding ConfirmarCommand}" Margin="0,0,10,0"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
