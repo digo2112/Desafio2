@@ -78,29 +78,31 @@ namespace Final.ViewModels
 
         private void MostrarParticipantes()
         {
-           
-            string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Participantes";
+            string tempPath = Environment.GetEnvironmentVariable("TEMP");
+            string directory = Path.Combine(tempPath, "Desafio2_JSON_DB", "Participantes");
+            //string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Participantes";
 
             // Participantes = new List<Participantes>();
             Participantes = new ObservableCollection<Participantes>();
-            Debug.WriteLine($"entrei 1 ");
+          
 
             foreach (var participanteFile in Directory.EnumerateFiles(directory, "*.json"))
             {
-                Debug.WriteLine($"entrei 2 ");
+
                 var participanteJson = File.ReadAllText(participanteFile);
                 var participante = JsonConvert.DeserializeObject<Participantes>(participanteJson);
                 if (participante != null && participante.EventoSelecionado?.Id == EventoSelecionado.Id)
                 {
                     Participantes.Add(participante);
-                    Debug.WriteLine($"Participante lido: {JsonConvert.SerializeObject(participante, Formatting.Indented)}");
                 }
 
             }
         }
         private List<Eventos> CarregarEventos()
         {
-            string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Eventos";
+            string tempPath = Environment.GetEnvironmentVariable("TEMP");
+            string directory = Path.Combine(tempPath, "Desafio2_JSON_DB", "Eventos");
+            //string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Eventos";
             var eventos = new List<Eventos>();
 
             foreach (var file in Directory.EnumerateFiles(directory, "*.json"))
@@ -108,7 +110,7 @@ namespace Final.ViewModels
                 var json = File.ReadAllText(file);
                 var evento = JsonConvert.DeserializeObject<Eventos>(json);
 
-                // Carregar os participantes do evento
+               
                 string participantesDirectory = Path.Combine(directory, $"{evento.Id}");
                 if (Directory.Exists(participantesDirectory))
                 {

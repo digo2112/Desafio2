@@ -36,7 +36,9 @@ public class ParticipanteViewModel
 
     private List<Eventos> GetEventos()
     {
-        string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Eventos";
+        string tempPath = Environment.GetEnvironmentVariable("TEMP");
+        string directory = Path.Combine(tempPath, "Desafio2_JSON_DB", "Eventos");
+        //string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Eventos";
         var eventos = new List<Eventos>();
 
         if (Directory.Exists(directory))
@@ -110,7 +112,9 @@ public class ParticipanteViewModel
 
             string json = JsonConvert.SerializeObject(participante, Formatting.Indented);
 
-            string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Participantes";
+            string tempPath = Environment.GetEnvironmentVariable("TEMP");
+            string directory = Path.Combine(tempPath, "Desafio2_JSON_DB", "Participantes");
+            // string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Participantes";
             if (!Directory.Exists(directory))
             {
                 Directory.CreateDirectory(directory);

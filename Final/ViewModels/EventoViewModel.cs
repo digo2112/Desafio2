@@ -74,7 +74,9 @@ namespace Final.ViewModels
                 };
 
                 string json = JsonConvert.SerializeObject(evento);
-                string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Eventos";
+                string tempPath = Environment.GetEnvironmentVariable("TEMP");
+                string directory = Path.Combine(tempPath, "Desafio2_JSON_DB", "Eventos");
+                //string directory = @"C:\Users\rodrigo\Desktop\DesafioDeltaFire2\FinalDesafio_3\Desafio3_DB\Eventos";
                 if (!Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
